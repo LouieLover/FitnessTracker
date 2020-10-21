@@ -1,5 +1,5 @@
 const express = require("express");
-const mongojs = require("mongojs");
+
 const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/murmuring-dusk-98089", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker", {
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/murmuring-dusk-
 const databaseUrl = "fitnesstracker";
 const collections = ["fitnesstracker"];
 
-const db = mongojs(databaseUrl, collections);
+
 const connection = mongoose.connection;
 
 connection.on("connected", () => {
