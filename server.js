@@ -1,7 +1,7 @@
 const express = require("express");
 
+const path = require("path");
 const mongoose = require("mongoose");
-
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -53,7 +53,7 @@ app.get("/stats", (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log("App running on port 3000!");
+    console.log("App running on port http://localhost:" + PORT);
 });
 
 
