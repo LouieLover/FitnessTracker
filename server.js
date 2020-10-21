@@ -43,20 +43,14 @@ app.get("/api/index", (req, res) => {
     });
 });
 app.get("/exercise", (req, res) => {
-    res.json({
-        success: true,
-    });
+
+    res.sendFile(path.join(__dirname, "./public/exercise.html"));
+
 });
 app.get("/stats", (req, res) => {
-    res.json({
-        success: true,
-    });
+    res.sendFile(path.join(__dirname, "./public/stats.html"));
 });
-app.get("/workout", (req, res) => {
-    res.json({
-        success: true,
-    });
-});
+
 
 app.listen(PORT, () => {
     console.log("App running on port 3000!");
