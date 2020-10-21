@@ -20,10 +20,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitnesstracker"
     useUnifiedTopology: true,
 });
 
-const databaseUrl = "fitnesstracker";
-const collections = ["fitnesstracker"];
-
-
 const connection = mongoose.connection;
 
 connection.on("connected", () => {
@@ -34,11 +30,11 @@ connection.on("error", (err) => {
     console.log("Mongoose connection error: ", err);
 });
 
-app.get("/", (req, res) => {
-    res.json({
-        success: true,
-    });
-});
+// app.get("/", (req, res) => {
+//     res.json({
+//         success: true,
+//     });
+// });
 
 app.get("/api/config", (req, res) => {
     res.json({
@@ -122,3 +118,5 @@ app.listen(3000, () => {
 // app.listen(PORT, () => {
 //     console.log(`Server is running on http://localhost:${PORT}`);
 // });
+
+mongodb + srv: //1234:4XN0DH2Fjc0kK4YP@random.a37sp.mongodb.net/fitnesstracker?retryWrites=true&w=majority
