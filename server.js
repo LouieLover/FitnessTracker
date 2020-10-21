@@ -119,4 +119,4 @@ app.listen(3000, () => {
 //     console.log(`Server is running on http://localhost:${PORT}`);
 // });
 
-mongodb + srv: //1234:4XN0DH2Fjc0kK4YP@random.a37sp.mongodb.net/fitnesstracker?retryWrites=true&w=majority
+// mongodb + srv: //1234:4XN0DH2Fjc0kK4YP@random.a37sp.mongodb.net/fitnesstracker?retryWrites=true&w=majority
