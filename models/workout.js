@@ -58,12 +58,3 @@ const WorkoutSchema = new Schema({
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
-
-// "type": data.type,
-//     "name": data.name,
-//     "duration": data.duration,
-//     "distance": data.distance,
-//     "weight": data.weight,
-//     "reps": data.reps,
-//     "sets": data.sets
-// }

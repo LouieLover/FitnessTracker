@@ -19,20 +19,20 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-// router.get("/api/workouts", (req, res) => {
-//     db.Workout.findById(req.params.id)
-//         .then((foundWorkout) => {
-//             res.json(foundWorkout);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.json({
-//                 error: true,
-//                 data: null,
-//                 message: `Failed to retrieve ingredient with id: ${req.params.id}`,
-//             });
-//         });
-// });
+router.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({})
+        .then((foundWorkout) => {
+            res.json(foundWorkout);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({
+                error: true,
+                data: null,
+                message: "Failed to retrieve ingredients.",
+            });
+        });
+});
 
 router.post("/api/workouts", (req, res) => {
     db.Workout.create(req.body)
