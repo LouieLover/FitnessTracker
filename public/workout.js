@@ -14,7 +14,7 @@ async function initWorkout() {
 
         renderWorkoutSummary(workoutSummary);
     } else {
-        renderNoWorkoutText()
+        renderNoWorkoutText();
     }
 }
 

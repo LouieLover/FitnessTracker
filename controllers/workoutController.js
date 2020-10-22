@@ -19,23 +19,23 @@ router.get("/api/workouts", (req, res) => {
         });
 });
 
-router.get("/api/workouts/:id", (req, res) => {
-    db.Workout.findById(req.params.id)
-        .then((foundWorkout) => {
-            res.json(foundWorkout);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.json({
-                error: true,
-                data: null,
-                message: `Failed to retrieve ingredient with id: ${req.params.id}`,
-            });
-        });
-});
+// router.get("/api/workouts", (req, res) => {
+//     db.Workout.findById(req.params.id)
+//         .then((foundWorkout) => {
+//             res.json(foundWorkout);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//             res.json({
+//                 error: true,
+//                 data: null,
+//                 message: `Failed to retrieve ingredient with id: ${req.params.id}`,
+//             });
+//         });
+// });
 
-router.post("/api/workouts/:id", (req, res) => {
-    db.Workout.createWorkout(req.body)
+router.post("/api/workouts", (req, res) => {
+    db.Workout.create(req.body)
         .then((newWorkout) => {
             res.json(newWorkout);
         })
@@ -50,7 +50,8 @@ router.post("/api/workouts/:id", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-    db.Workout.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    console.log(req.body);
+    db.Workout.findByIdAndUpdate(req.params.id, { $push: { exercises: req.body } }, { new: true })
         .then((updatedWorkout) => {
             res.json(updatedWorkout);
         })
@@ -59,7 +60,7 @@ router.put("/api/workouts/:id", (req, res) => {
             res.json({
                 error: true,
                 data: null,
-                message: "Failed to update ingredient.",
+                message: "Failed to update workout.",
             });
         });
 });
