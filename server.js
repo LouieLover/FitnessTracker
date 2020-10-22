@@ -4,7 +4,12 @@ const path = require("path");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
 
+const workoutController = require("./controllers/workoutController");
+const exerciseController = require("./controllers/exerciseController");
+
 const app = express();
+
+const db = require("./models");
 
 // app.use(logger("dev"));
 
@@ -37,11 +42,36 @@ app.get("/api/config", (req, res) => {
     });
 });
 
-app.get("/api/index", (req, res) => {
+app.get("/api/workouts", (req, res) => {
     res.json({
         success: true,
     });
 });
+app.get("/api/workouts/:id", (req, res) => {
+    res.json({
+        success: true,
+    });
+});
+app.post("/api/workouts", (req, res) => {
+    res.json({
+        success: true,
+    });
+});
+app.put("/api/workouts/:id", (req, res) => {
+    res.json({
+        success: true,
+    });
+});
+
+app.delete("/api/workouts/:id", (req, res) => {
+    res.json({
+        success: true,
+    });
+});
+
+app.use(workoutController);
+app.use(exerciseController);
+
 app.get("/exercise", (req, res) => {
 
     res.sendFile(path.join(__dirname, "./public/exercise.html"));
@@ -50,6 +80,8 @@ app.get("/exercise", (req, res) => {
 app.get("/stats", (req, res) => {
     res.sendFile(path.join(__dirname, "./public/stats.html"));
 });
+
+
 
 
 app.listen(PORT, () => {
